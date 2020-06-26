@@ -36,6 +36,6 @@ python create_classes.py $chr $nr_samples
 
 
 cut -f1 -d' ' tmp_chr${chr}_snps_keep.txt > tmp_chr${chr}_final_pos.txt
-cut -f2-3 -d' ' /gpfs/share/barnescaapa/caapa_local_ancestry/data/input/genetic_map_tgp/chr${chr}.txt | uniq > tmp_chr${chr}_pos_cm.txt
+cut -f2-3 -d' ' ../test/rfmix_input/genetic_map_tgp/chr${chr}.txt | uniq > tmp_chr${chr}_pos_cm.txt
 join -1 1 -2 1 tmp_chr${chr}_final_pos.txt tmp_chr${chr}_pos_cm.txt | cut -f2 -d' ' > ../data/input/rfmix/chr${chr}/snp_locations.txt
 python create_snp_locations.py $chr
